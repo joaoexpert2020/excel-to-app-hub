@@ -19,8 +19,8 @@ export function PageHeader({
   acoes,
 }: {
   titulo: string;
-  descricao?: string;
-  acoes?: ReactNode;
+  descricao?: string | undefined;
+  acoes?: ReactNode | undefined;
 }) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-4">
@@ -101,8 +101,8 @@ export function StatCard({
   label: string;
   valor: number;
   tom?: "positivo" | "negativo" | "neutro" | "aviso";
-  detalhe?: string;
-  icone?: ReactNode;
+  detalhe?: string | undefined;
+  icone?: ReactNode | undefined;
 }) {
   const tons = {
     positivo: "text-positive",
@@ -131,10 +131,10 @@ export function Panel({
   children,
   className,
 }: {
-  titulo?: string;
-  acao?: ReactNode;
+  titulo?: string | undefined;
+  acao?: ReactNode | undefined;
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <section className={cn("panel p-5", className)}>

@@ -40,7 +40,7 @@ function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <PageHeader titulo={`Dashboard · ${MESES[mes - 1]} ${ano}`} descricao="Visão consolidada do mês, com comparativo e insights automáticos." acoes={<><SeletorPeriodo /><Button onClick={() => setDialog(true)}><Plus className="size-4" /> Lançamento</Button></>} />
+      <PageHeader titulo={`Dashboard · ${MESES[mes - 1]} ${ano}`} acoes={<><SeletorPeriodo /><Button onClick={() => setDialog(true)}><Plus className="size-4" /> Lançamento</Button></>} />
 
       {/* No celular: 2 cards por linha, compactos, evitando que os quatro cards ocupem a tela inteira. */}
       <div className="grid grid-cols-2 gap-2 sm:gap-4 xl:grid-cols-4">

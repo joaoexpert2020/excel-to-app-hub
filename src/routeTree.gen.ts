@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedAnualRouteImport } from './routes/_authenticated/anual'
+import { Route as AuthenticatedCachacaRouteImport } from './routes/_authenticated/cachaca'
+import { Route as AuthenticatedCartaoRouteImport } from './routes/_authenticated/cartao'
+import { Route as AuthenticatedComidaRouteImport } from './routes/_authenticated/comida'
+import { Route as AuthenticatedConfiguracoesRouteImport } from './routes/_authenticated/configuracoes'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedImportarRouteImport } from './routes/_authenticated/importar'
+import { Route as AuthenticatedLancamentosRouteImport } from './routes/_authenticated/lancamentos'
+import { Route as AuthenticatedOutrasReceitasRouteImport } from './routes/_authenticated/outras-receitas'
+import { Route as AuthenticatedOutrosRouteImport } from './routes/_authenticated/outros'
+import { Route as AuthenticatedRecorrenciasRouteImport } from './routes/_authenticated/recorrencias'
+import { Route as AuthenticatedRelatorioRouteImport } from './routes/_authenticated/relatorio'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAnualRoute = AuthenticatedAnualRouteImport.update({
+  id: '/anual',
+  path: '/anual',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCachacaRoute = AuthenticatedCachacaRouteImport.update({
+  id: '/cachaca',
+  path: '/cachaca',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCartaoRoute = AuthenticatedCartaoRouteImport.update({
+  id: '/cartao',
+  path: '/cartao',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedComidaRoute = AuthenticatedComidaRouteImport.update({
+  id: '/comida',
+  path: '/comida',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedConfiguracoesRoute =
+  AuthenticatedConfiguracoesRouteImport.update({
+    id: '/configuracoes',
+    path: '/configuracoes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedImportarRoute = AuthenticatedImportarRouteImport.update({
+  id: '/importar',
+  path: '/importar',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedLancamentosRoute =
+  AuthenticatedLancamentosRouteImport.update({
+    id: '/lancamentos',
+    path: '/lancamentos',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOutrasReceitasRoute =
+  AuthenticatedOutrasReceitasRouteImport.update({
+    id: '/outras-receitas',
+    path: '/outras-receitas',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOutrosRoute = AuthenticatedOutrosRouteImport.update({
+  id: '/outros',
+  path: '/outros',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedRecorrenciasRoute =
+  AuthenticatedRecorrenciasRouteImport.update({
+    id: '/recorrencias',
+    path: '/recorrencias',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRelatorioRoute = AuthenticatedRelatorioRouteImport.update({
+  id: '/relatorio',
+  path: '/relatorio',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/anual': typeof AuthenticatedAnualRoute
+  '/cachaca': typeof AuthenticatedCachacaRoute
+  '/cartao': typeof AuthenticatedCartaoRoute
+  '/comida': typeof AuthenticatedComidaRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/importar': typeof AuthenticatedImportarRoute
+  '/lancamentos': typeof AuthenticatedLancamentosRoute
+  '/outras-receitas': typeof AuthenticatedOutrasReceitasRoute
+  '/outros': typeof AuthenticatedOutrosRoute
+  '/recorrencias': typeof AuthenticatedRecorrenciasRoute
+  '/relatorio': typeof AuthenticatedRelatorioRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/anual': typeof AuthenticatedAnualRoute
+  '/cachaca': typeof AuthenticatedCachacaRoute
+  '/cartao': typeof AuthenticatedCartaoRoute
+  '/comida': typeof AuthenticatedComidaRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/importar': typeof AuthenticatedImportarRoute
+  '/lancamentos': typeof AuthenticatedLancamentosRoute
+  '/outras-receitas': typeof AuthenticatedOutrasReceitasRoute
+  '/outros': typeof AuthenticatedOutrosRoute
+  '/recorrencias': typeof AuthenticatedRecorrenciasRoute
+  '/relatorio': typeof AuthenticatedRelatorioRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_authenticated/anual': typeof AuthenticatedAnualRoute
+  '/_authenticated/cachaca': typeof AuthenticatedCachacaRoute
+  '/_authenticated/cartao': typeof AuthenticatedCartaoRoute
+  '/_authenticated/comida': typeof AuthenticatedComidaRoute
+  '/_authenticated/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/importar': typeof AuthenticatedImportarRoute
+  '/_authenticated/lancamentos': typeof AuthenticatedLancamentosRoute
+  '/_authenticated/outras-receitas': typeof AuthenticatedOutrasReceitasRoute
+  '/_authenticated/outros': typeof AuthenticatedOutrosRoute
+  '/_authenticated/recorrencias': typeof AuthenticatedRecorrenciasRoute
+  '/_authenticated/relatorio': typeof AuthenticatedRelatorioRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/anual'
+    | '/cachaca'
+    | '/cartao'
+    | '/comida'
+    | '/configuracoes'
+    | '/dashboard'
+    | '/importar'
+    | '/lancamentos'
+    | '/outras-receitas'
+    | '/outros'
+    | '/recorrencias'
+    | '/relatorio'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/anual'
+    | '/cachaca'
+    | '/cartao'
+    | '/comida'
+    | '/configuracoes'
+    | '/dashboard'
+    | '/importar'
+    | '/lancamentos'
+    | '/outras-receitas'
+    | '/outros'
+    | '/recorrencias'
+    | '/relatorio'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/anual'
+    | '/_authenticated/cachaca'
+    | '/_authenticated/cartao'
+    | '/_authenticated/comida'
+    | '/_authenticated/configuracoes'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/importar'
+    | '/_authenticated/lancamentos'
+    | '/_authenticated/outras-receitas'
+    | '/_authenticated/outros'
+    | '/_authenticated/recorrencias'
+    | '/_authenticated/relatorio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +221,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/anual': {
+      id: '/_authenticated/anual'
+      path: '/anual'
+      fullPath: '/anual'
+      preLoaderRoute: typeof AuthenticatedAnualRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/cachaca': {
+      id: '/_authenticated/cachaca'
+      path: '/cachaca'
+      fullPath: '/cachaca'
+      preLoaderRoute: typeof AuthenticatedCachacaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/cartao': {
+      id: '/_authenticated/cartao'
+      path: '/cartao'
+      fullPath: '/cartao'
+      preLoaderRoute: typeof AuthenticatedCartaoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/comida': {
+      id: '/_authenticated/comida'
+      path: '/comida'
+      fullPath: '/comida'
+      preLoaderRoute: typeof AuthenticatedComidaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/configuracoes': {
+      id: '/_authenticated/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof AuthenticatedConfiguracoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/importar': {
+      id: '/_authenticated/importar'
+      path: '/importar'
+      fullPath: '/importar'
+      preLoaderRoute: typeof AuthenticatedImportarRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/lancamentos': {
+      id: '/_authenticated/lancamentos'
+      path: '/lancamentos'
+      fullPath: '/lancamentos'
+      preLoaderRoute: typeof AuthenticatedLancamentosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/outras-receitas': {
+      id: '/_authenticated/outras-receitas'
+      path: '/outras-receitas'
+      fullPath: '/outras-receitas'
+      preLoaderRoute: typeof AuthenticatedOutrasReceitasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/outros': {
+      id: '/_authenticated/outros'
+      path: '/outros'
+      fullPath: '/outros'
+      preLoaderRoute: typeof AuthenticatedOutrosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/recorrencias': {
+      id: '/_authenticated/recorrencias'
+      path: '/recorrencias'
+      fullPath: '/recorrencias'
+      preLoaderRoute: typeof AuthenticatedRecorrenciasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/relatorio': {
+      id: '/_authenticated/relatorio'
+      path: '/relatorio'
+      fullPath: '/relatorio'
+      preLoaderRoute: typeof AuthenticatedRelatorioRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAnualRoute: typeof AuthenticatedAnualRoute
+  AuthenticatedCachacaRoute: typeof AuthenticatedCachacaRoute
+  AuthenticatedCartaoRoute: typeof AuthenticatedCartaoRoute
+  AuthenticatedComidaRoute: typeof AuthenticatedComidaRoute
+  AuthenticatedConfiguracoesRoute: typeof AuthenticatedConfiguracoesRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedImportarRoute: typeof AuthenticatedImportarRoute
+  AuthenticatedLancamentosRoute: typeof AuthenticatedLancamentosRoute
+  AuthenticatedOutrasReceitasRoute: typeof AuthenticatedOutrasReceitasRoute
+  AuthenticatedOutrosRoute: typeof AuthenticatedOutrosRoute
+  AuthenticatedRecorrenciasRoute: typeof AuthenticatedRecorrenciasRoute
+  AuthenticatedRelatorioRoute: typeof AuthenticatedRelatorioRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAnualRoute: AuthenticatedAnualRoute,
+  AuthenticatedCachacaRoute: AuthenticatedCachacaRoute,
+  AuthenticatedCartaoRoute: AuthenticatedCartaoRoute,
+  AuthenticatedComidaRoute: AuthenticatedComidaRoute,
+  AuthenticatedConfiguracoesRoute: AuthenticatedConfiguracoesRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedImportarRoute: AuthenticatedImportarRoute,
+  AuthenticatedLancamentosRoute: AuthenticatedLancamentosRoute,
+  AuthenticatedOutrasReceitasRoute: AuthenticatedOutrasReceitasRoute,
+  AuthenticatedOutrosRoute: AuthenticatedOutrosRoute,
+  AuthenticatedRecorrenciasRoute: AuthenticatedRecorrenciasRoute,
+  AuthenticatedRelatorioRoute: AuthenticatedRelatorioRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

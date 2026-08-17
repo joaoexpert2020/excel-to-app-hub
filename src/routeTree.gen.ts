@@ -12,9 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedCachacaRouteImport } from './routes/_authenticated/cachaca'
 import { Route as AuthenticatedComidaRouteImport } from './routes/_authenticated/comida'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedLancamentosRouteImport } from './routes/_authenticated/lancamentos'
+import { Route as AuthenticatedOutrasReceitasRouteImport } from './routes/_authenticated/outras-receitas'
+import { Route as AuthenticatedOutrosRouteImport } from './routes/_authenticated/outros'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,6 +32,11 @@ const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedCachacaRoute = AuthenticatedCachacaRouteImport.update({
+  id: '/cachaca',
+  path: '/cachaca',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedComidaRoute = AuthenticatedComidaRouteImport.update({
   id: '/comida',
@@ -46,43 +54,82 @@ const AuthenticatedLancamentosRoute =
     path: '/lancamentos',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedOutrasReceitasRoute =
+  AuthenticatedOutrasReceitasRouteImport.update({
+    id: '/outras-receitas',
+    path: '/outras-receitas',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOutrosRoute = AuthenticatedOutrosRouteImport.update({
+  id: '/outros',
+  path: '/outros',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/cachaca': typeof AuthenticatedCachacaRoute
   '/comida': typeof AuthenticatedComidaRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/lancamentos': typeof AuthenticatedLancamentosRoute
+  '/outras-receitas': typeof AuthenticatedOutrasReceitasRoute
+  '/outros': typeof AuthenticatedOutrosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/cachaca': typeof AuthenticatedCachacaRoute
   '/comida': typeof AuthenticatedComidaRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/lancamentos': typeof AuthenticatedLancamentosRoute
+  '/outras-receitas': typeof AuthenticatedOutrasReceitasRoute
+  '/outros': typeof AuthenticatedOutrosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/_authenticated/cachaca': typeof AuthenticatedCachacaRoute
   '/_authenticated/comida': typeof AuthenticatedComidaRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/lancamentos': typeof AuthenticatedLancamentosRoute
+  '/_authenticated/outras-receitas': typeof AuthenticatedOutrasReceitasRoute
+  '/_authenticated/outros': typeof AuthenticatedOutrosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/comida' | '/dashboard' | '/lancamentos'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/cachaca'
+    | '/comida'
+    | '/dashboard'
+    | '/lancamentos'
+    | '/outras-receitas'
+    | '/outros'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/comida' | '/dashboard' | '/lancamentos'
+  to:
+    | '/'
+    | '/auth'
+    | '/cachaca'
+    | '/comida'
+    | '/dashboard'
+    | '/lancamentos'
+    | '/outras-receitas'
+    | '/outros'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/_authenticated/cachaca'
     | '/_authenticated/comida'
     | '/_authenticated/dashboard'
     | '/_authenticated/lancamentos'
+    | '/_authenticated/outras-receitas'
+    | '/_authenticated/outros'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -114,6 +161,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/cachaca': {
+      id: '/_authenticated/cachaca'
+      path: '/cachaca'
+      fullPath: '/cachaca'
+      preLoaderRoute: typeof AuthenticatedCachacaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/comida': {
       id: '/_authenticated/comida'
       path: '/comida'
@@ -135,19 +189,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedLancamentosRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/outras-receitas': {
+      id: '/_authenticated/outras-receitas'
+      path: '/outras-receitas'
+      fullPath: '/outras-receitas'
+      preLoaderRoute: typeof AuthenticatedOutrasReceitasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/outros': {
+      id: '/_authenticated/outros'
+      path: '/outros'
+      fullPath: '/outros'
+      preLoaderRoute: typeof AuthenticatedOutrosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedCachacaRoute: typeof AuthenticatedCachacaRoute
   AuthenticatedComidaRoute: typeof AuthenticatedComidaRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedLancamentosRoute: typeof AuthenticatedLancamentosRoute
+  AuthenticatedOutrasReceitasRoute: typeof AuthenticatedOutrasReceitasRoute
+  AuthenticatedOutrosRoute: typeof AuthenticatedOutrosRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedCachacaRoute: AuthenticatedCachacaRoute,
   AuthenticatedComidaRoute: AuthenticatedComidaRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedLancamentosRoute: AuthenticatedLancamentosRoute,
+  AuthenticatedOutrasReceitasRoute: AuthenticatedOutrasReceitasRoute,
+  AuthenticatedOutrosRoute: AuthenticatedOutrosRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
